@@ -6,12 +6,14 @@ public struct LineChart: View, ChartBase {
 
     @EnvironmentObject var data: ChartData
     @EnvironmentObject var style: ChartStyle
+    
+    public var lineDidSelect: ((Double) -> ())? = nil
 
 	/// The content and behavior of the `LineChart`.
 	///
 	///
     public var body: some View {
-        Line(chartData: data, style: style)
+        Line(chartData: data, style: style, didSelectValue: lineDidSelect)
     }
     
     public init() {}

@@ -13,7 +13,7 @@ public struct Line: View {
     @State private var showFull: Bool = false
     @State private var showBackground: Bool = true
     var curvedLines: Bool = true
-
+    var didSelectValue: ((Double) -> ())?
 	/// Step for plotting through data
 	/// - Returns: X and Y delta between each data point based on data and view's frame
     var step: CGPoint {
@@ -120,6 +120,7 @@ extension Line {
         let index = Int(round((point.x)/step.x))
         if (index >= 0 && index < self.chartData.data.count){
             self.chartValue.currentValue = self.chartData.points[index]
+            self.didSelectValue?(self.chartValue.currentValue)
         }
     }
 
