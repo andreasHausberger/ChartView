@@ -8,6 +8,10 @@ public struct LineChart: View, ChartBase {
     @EnvironmentObject var style: ChartStyle
     
     public var lineDidSelect: ((Double) -> ())? = nil
+    
+    public init(lineDidSelect: ((Double) -> ())? = nil) {
+        self.lineDidSelect = lineDidSelect
+    }
 
 	/// The content and behavior of the `LineChart`.
 	///
