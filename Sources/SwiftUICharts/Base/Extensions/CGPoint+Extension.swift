@@ -8,6 +8,7 @@ extension CGPoint {
 	///   - data: array of `Double`
 	/// - Returns: X and Y delta as a `CGPoint`
     static func getStep(frame: CGRect, data: [Double]) -> CGPoint {
+        let padding: CGFloat = 2.0
 
         // stepWidth
         var stepWidth: CGFloat = 0.0
@@ -29,9 +30,9 @@ extension CGPoint {
         }
         if let min = min, let max = max, min != max {
             if min <= 0 {
-                stepHeight = (frame.size.height) / CGFloat(max - min)
+                stepHeight = (frame.size.height - padding) / CGFloat(max - min)
             } else {
-                stepHeight = (frame.size.height) / CGFloat(max + min)
+                stepHeight = (frame.size.height - padding) / CGFloat(max + min)
             }
         }
 
