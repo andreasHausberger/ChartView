@@ -28,7 +28,7 @@ public struct Line: View {
         if curvedLines {
             return Path.quadCurvedPathWithPoints(points: points,
                                                  step: step,
-                                                 globalOffset: nil)
+                                                 globalOffset: 0)
         }
 
         return Path.linePathWithPoints(points: points, step: step)
@@ -42,7 +42,7 @@ public struct Line: View {
         if curvedLines {
             return Path.quadClosedCurvedPathWithPoints(points: points,
                                             step: step,
-                                            globalOffset: nil)
+                                            globalOffset: 0)
         }
 
         return Path.closedLinePathWithPoints(points: points, step: step)
